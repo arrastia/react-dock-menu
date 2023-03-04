@@ -8,5 +8,5 @@ module.exports = {
     { file: 'dist/index.js', format: 'cjs' },
     { file: 'dist/index.esm.js', format: 'es' }
   ],
-  plugins: [typescript({ typescript: require('typescript') }), postcss({ extract: true, modules: true })]
+  plugins: [typescript({ typescript: require('typescript') }), postcss({ modules: true })]
 };
