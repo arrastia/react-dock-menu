@@ -1,0 +1,57 @@
+.stack {
+  align-items: flex-end;
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: rgb(255 255 255 / 30%);
+  border-radius: 20px;
+  box-shadow: 0 10px 70px 1px rgba(0, 0, 0, 0.56);
+  box-sizing: content-box;
+  display: flex;
+  gap: 0.5rem;
+  height: 48px;
+  margin: 0;
+  overflow: scroll;
+  padding: 0.5rem;
+  position: fixed;
+  width: 80%;
+}
+
+.stack.left,
+.stack.right {
+  height: auto;
+  top: 50%;
+  width: 48px;
+}
+.stack.left {
+  flex-direction: column-reverse;
+  left: 1rem;
+  transform: translateY(-50%) rotate(180deg);
+}
+.stack.right {
+  flex-direction: column;
+  right: 1rem;
+  transform: translateY(-50%);
+}
+
+.stack.bottom {
+  bottom: 1rem;
+  flex-direction: row;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.stack.top {
+  flex-direction: row-reverse;
+  left: 50%;
+  top: 1rem;
+  transform: translateX(-50%) rotate(180deg);
+}
+
+@media screen and (min-width: 768px) {
+  .stack {
+    overflow: unset;
+    width: auto;
+  }
+}
+
+.stack::-webkit-scrollbar {
+  display: none;
+}
