@@ -8,7 +8,7 @@ import { MouseProvider } from 'providers/MouseProvider';
 
 import { isSideDock } from 'utils/position';
 
-import type { DockProps } from 'types/Dock.types';
+import type { DockProps } from '../../types/Dock.types';
 
 export const Dock = ({ children, className, magnification = 35, position = 'bottom', size = 50, ...rest }: DockProps) => {
   const [hovered, setHovered] = useState(false);

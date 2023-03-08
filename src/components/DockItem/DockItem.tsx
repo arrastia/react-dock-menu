@@ -12,7 +12,7 @@ import { useEventListener } from 'hooks/useEventListener';
 import { isSideDock } from 'utils/position';
 import { isTouchDevice } from 'utils/device';
 
-import type { DockItemProps } from 'types/Dock.types';
+import type { DockItemProps } from '../../types/Dock.types';
 
 export const DockItem = ({ children, onClick, ...rest }: DockItemProps) => {
   const { dockPosition, hovered, magnification, size, width } = useContext(DockContext);
