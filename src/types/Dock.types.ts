@@ -1,5 +1,5 @@
-import type { MotionValue } from 'framer-motion';
-import type { ReactNode } from 'react';
+import type { HTMLMotionProps, MotionValue } from 'framer-motion';
+import type { HtmlHTMLAttributes, ReactNode } from 'react';
 
 export type Position = 'left' | 'right' | 'top' | 'bottom';
 
@@ -8,12 +8,12 @@ export interface DockMouse {
   velocity: { x: MotionValue<number>; y: MotionValue<number> };
 }
 
-export interface DockItemProps {
+export interface DockItemProps extends HTMLMotionProps<'li'> {
   children: ReactNode;
   onClick?: () => void;
 }
 
-export interface DockProps {
+export interface DockProps extends HtmlHTMLAttributes<HTMLUListElement> {
   children: ReactNode;
   magnification?: number;
   position?: Position;
