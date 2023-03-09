@@ -14,7 +14,7 @@ import { isTouchDevice } from 'utils/device';
 
 import type { DockItemProps } from '../../types/Dock.types';
 
-export const DockItem = ({ children, onClick, ...rest }: DockItemProps) => {
+export const DockItem = ({ children, className, onClick, ...rest }: DockItemProps) => {
   const { dockPosition, hovered, magnification, size, width } = useContext(DockContext);
   const { position } = useContext(MouseContext);
 
@@ -56,7 +56,7 @@ export const DockItem = ({ children, onClick, ...rest }: DockItemProps) => {
 
   return (
     <motion.li
-      className={`${styles.item} ${styles[dockPosition]}`}
+      className={`${styles.item} ${styles[dockPosition]} ${className}`}
       onClick={onClick}
       ref={ref}
       style={{ height: !isTouchDevice() ? spring : size, minWidth: size, width: !isTouchDevice() ? spring : size }}

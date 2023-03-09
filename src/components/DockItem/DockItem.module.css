@@ -1,12 +1,12 @@
 .item {
-  /* align-items: center; */
+  align-items: center;
   /* background-color: white; */
   /* border-radius: 15px; */
   /* cursor: pointer; */
-  /* display: flex; */
+  display: flex;
   /* filter: saturate(0.9) brightness(0.9); */
-  /* flex-direction: column; */
-  /* justify-content: center; */
+  flex-direction: column;
+  justify-content: center;
   list-style: none;
   /* transform: scale(1); */
   /* transition: filter 250ms, transform 300ms; */
