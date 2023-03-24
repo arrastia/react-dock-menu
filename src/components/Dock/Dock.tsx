@@ -28,6 +28,7 @@ export const Dock = ({ children, className, magnification = 35, position = 'bott
           onMouseOut={() => setHovered(false)}
           onMouseOver={() => setHovered(true)}
           ref={ref}
+          style={{ [isSideDock(position) ? 'width' : 'height']: size }}
           {...rest}>
           {children}
         </ul>
