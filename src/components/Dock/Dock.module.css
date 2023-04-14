@@ -10,10 +10,11 @@
   /* height: fit-content; */
   border-radius: 20px;
   margin: 0;
-  overflow: scroll;
+  overflow-x: scroll;
   padding: 0.5rem;
   position: fixed;
   width: 80%;
+  max-width: fit-content;
 }
 
 .stack.left,
@@ -55,4 +56,11 @@
 
 .stack::-webkit-scrollbar {
   display: none;
+}
+
+@media (hover: none) {
+  .stack {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
 }

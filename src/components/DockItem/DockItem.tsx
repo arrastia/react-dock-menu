@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 
-import { motion, useSpring, useTransform } from 'framer-motion';
+import { motion, useSpring, useTransform, useReducedMotion } from 'framer-motion';
 
 import styles from './DockItem.module.css';
 
@@ -13,12 +13,16 @@ import { isSideDock } from 'utils/position';
 import { isTouchDevice } from 'utils/device';
 
 import type { DockItemProps } from '../../types/Dock.types';
+import { useBreakPoint } from 'hooks/useBreakPoint';
 
 export const DockItem = ({ children, className, onClick, ...rest }: DockItemProps) => {
   const { dockPosition, hovered, magnification, size, width } = useContext(DockContext);
   const { position } = useContext(MouseContext);
 
   const [center, setCenter] = useState<number>(0);
+
+  const isMotionReduced = useReducedMotion();
+  const isWindowSmall = useBreakPoint();
 
   const ref = useRef<HTMLLIElement>(null);
 
@@ -54,12 +58,14 @@ export const DockItem = ({ children, className, onClick, ...rest }: DockItemProp
 
   useEventListener({ appendTo: window, event: 'resize', handler: handleResize });
 
+  const shouldAnimate = !isMotionReduced && !isWindowSmall && !isTouchDevice();
+
   return (
     <motion.li
       className={`${styles.item} ${styles[dockPosition]} ${className}`}
       onClick={onClick}
       ref={ref}
-      style={{ height: !isTouchDevice() ? spring : size, minWidth: size, width: !isTouchDevice() ? spring : size }}
+      style={{ height: shouldAnimate ? spring : size, minWidth: size, width: shouldAnimate ? spring : size }}
       {...rest}>
       {children}
     </motion.li>
