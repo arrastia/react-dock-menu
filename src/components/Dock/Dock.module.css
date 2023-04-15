@@ -1,20 +1,15 @@
 .stack {
   align-items: flex-end;
-  /* backdrop-filter: saturate(180%) blur(20px); */
-  /* background-color: rgb(255 255 255 / 30%); */
-  /* border-radius: 20px; */
-  /* box-shadow: 0 10px 70px 1px rgba(0, 0, 0, 0.56); */
+  border-radius: 20px;
   box-sizing: content-box;
   display: flex;
   gap: 0.5rem;
-  /* height: fit-content; */
-  border-radius: 20px;
   margin: 0;
+  max-width: fit-content;
   overflow-x: scroll;
   padding: 0.5rem;
   position: fixed;
   width: 80%;
-  max-width: fit-content;
 }
 
 .stack.left,

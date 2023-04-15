@@ -1,19 +1,19 @@
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 
-import { motion, useSpring, useTransform, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion, useSpring, useTransform } from 'framer-motion';
 
 import styles from './DockItem.module.css';
 
 import { DockContext } from 'contexts/DockContext';
 import { MouseContext } from 'contexts/MouseContext';
 
+import { useBreakPoint } from 'hooks/useBreakPoint';
 import { useEventListener } from 'hooks/useEventListener';
 
 import { isSideDock } from 'utils/position';
 import { isTouchDevice } from 'utils/device';
 
 import type { DockItemProps } from '../../types/Dock.types';
-import { useBreakPoint } from 'hooks/useBreakPoint';
 
 export const DockItem = ({ children, className, onClick, ...rest }: DockItemProps) => {
   const { dockPosition, hovered, magnification, size, width } = useContext(DockContext);
