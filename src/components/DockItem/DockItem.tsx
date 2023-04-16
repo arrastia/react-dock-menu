@@ -56,7 +56,7 @@ export const DockItem = ({ children, className, onClick, ...rest }: DockItemProp
     handleResize();
   }, [handleResize]);
 
-  useEventListener({ appendTo: window, event: 'resize', handler: handleResize });
+  useEventListener({ appendTo: typeof window !== 'undefined' ? window : undefined, event: 'resize', handler: handleResize });
 
   const shouldAnimate = !isMotionReduced && !isWindowSmall && !isTouchDevice();
 

@@ -11,7 +11,7 @@ export function useEventListener({ appendTo, event, handler, options }: Props) {
   useEffect(() => {
     const node = appendTo || document;
 
-    if (!handler || !node) return;
+    if (!handler || !node || typeof window === 'undefined') return;
 
     node.addEventListener(event, handler, options);
 
