@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+
+import { useEventListener } from './useEventListener';
 
 export const useBreakPoint = (): boolean => {
   const [isWindowSmall, setIsWindowSmall] = useState<boolean>(false);
 
-  useEffect(() => {
-    function handleWindowResizeListener() {
-      setIsWindowSmall(window.innerWidth < 768);
-    }
-
-    window.addEventListener('resize', handleWindowResizeListener);
-
-    return () => {
-      window.removeEventListener('resize', handleWindowResizeListener);
-    };
+  const handleWindowResizeListener = useCallback(() => {
+    setIsWindowSmall(window.innerWidth < 768);
   }, []);
+
+  useEffect(() => {
+    handleWindowResizeListener();
+  }, [handleWindowResizeListener]);
+
+  useEventListener({ appendTo: window, event: 'resize', handler: handleWindowResizeListener });
 
   return isWindowSmall;
 };
