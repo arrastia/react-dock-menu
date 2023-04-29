@@ -21,6 +21,7 @@
 .stack.left {
   flex-direction: column-reverse;
   left: 1rem;
+  scroll-behavior: revert;
   transform: translateY(-50%) rotate(180deg);
 }
 .stack.right {
@@ -38,6 +39,7 @@
 .stack.top {
   flex-direction: row-reverse;
   left: 50%;
+  scroll-behavior: revert;
   top: 1rem;
   transform: translateX(-50%) rotate(180deg);
 }
