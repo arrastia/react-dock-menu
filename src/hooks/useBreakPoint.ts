@@ -6,14 +6,18 @@ export const useBreakPoint = (): boolean => {
   const [isWindowSmall, setIsWindowSmall] = useState<boolean>(false);
 
   const handleWindowResizeListener = useCallback(() => {
-    setIsWindowSmall(window.innerWidth < 768);
+    if (typeof window !== 'undefined') setIsWindowSmall(window.innerWidth < 768);
   }, []);
 
   useEffect(() => {
     handleWindowResizeListener();
   }, [handleWindowResizeListener]);
 
-  useEventListener({ appendTo: window, event: 'resize', handler: handleWindowResizeListener });
+  useEventListener({
+    appendTo: typeof window !== 'undefined' ? window : undefined,
+    event: 'resize',
+    handler: handleWindowResizeListener
+  });
 
   return isWindowSmall;
 };
